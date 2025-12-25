@@ -1,8 +1,10 @@
 # 🎂 Three.js 3D Birthday Cake Surprise
 
-A beautiful and interactive web-based birthday celebration featuring a **realistic 3D cake** built with **Three.js**!
+A beautiful and interactive web-based birthday celebration featuring a **realistic 3D cake** built with **Three.js**!🎈
+---
 
-This project delivers a fully personalized birthday experience: users enter their name, listen to the classic "Happy Birthday" song, and then blow out the 3D cake candles by actually blowing into the microphone (or holding the screen)!
+This project delivers a fully personalized birthday experience: users enter their name, listen to the classic "Happy Birthday" song, and then blow out the 3D cake candles by actually blowing into the microphone (or holding the screen)!🎤
+---
 
 ## ✨ Features
 
@@ -15,6 +17,7 @@ This project delivers a fully personalized birthday experience: users enter thei
 - **Stunning animations & effects**: Particles, lighting, shadows, and festive visuals
 - **Responsive design** with a warm red-orange-black theme
 - **No server required** – Pure client-side, perfect for hosting on GitHub Pages or any static host
+---
 
 ## 🖼️ Demo / Screenshot
 
@@ -22,26 +25,34 @@ This project delivers a fully personalized birthday experience: users enter thei
 
 ![Birthday Cake Screenshot](./screenshot/Happy.png)
 
-**Live Demo**:  https://yourusername.github.io/three-js-birthday-cake)
+---
+
+**Live Demo**:
+https://yourusername.github.io/three-js-birthday-cake)
+
+---
 
 ## 🚀 How to Run Locally
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/YALDAKHOSHPEY/three-js-birthday-cake.git
+   
+   ---
 
 ## Development
 
 1. Clone the repository
 2. Install dependencies with `yarn`
 3. Run the project with `yarn dev`
-
+---
 ## Credits
 
 - [The Lonely Candle Codepen](https://codepen.io/prisoner849/pen/XPVGLp)
 - [Happy Birthday song (YouTube)](https://www.youtube.com/watch?v=aF8voKa_3Us)
+---
 
-## 📱 Tips for the Best Experience
+## 📱📝 Tips for the Best Experience
 
 - **Turn up your volume** to fully enjoy the song and sound effects.
 - To **blow out the candles**:
