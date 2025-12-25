@@ -20,7 +20,7 @@ This project delivers a fully personalized birthday experience: users enter thei
 
 ![Birthday Cake Screenshot](./screenshot/BD-cake.png)
 
-![Birthday Cake Screenshot](./screenshot/Happy.png.png)
+![Birthday Cake Screenshot](./screenshot/Happy.png)
 
 **Live Demo**:  https://yourusername.github.io/three-js-birthday-cake)
 
