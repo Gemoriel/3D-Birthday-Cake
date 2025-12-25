@@ -1,8 +1,7 @@
-# 🎂 Three.js 3D Birthday Cake Surprise
+# 🎂 Three.js 3D Birthday Cake Surprise🍰
 
 A beautiful and interactive web-based birthday celebration featuring a **realistic 3D cake** built with **Three.js**!🎈
 ---
-
 This project delivers a fully personalized birthday experience: users enter their name, listen to the classic "Happy Birthday" song, and then blow out the 3D cake candles by actually blowing into the microphone (or holding the screen)!🎤
 ---
 
