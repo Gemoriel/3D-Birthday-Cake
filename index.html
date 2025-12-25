@@ -2,55 +2,229 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Birthday Surprise 🎂</title>
-	<link rel="icon" href="/public/favicon.ico" type="image/x-icon">
-	<link href="style.css" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birthday Surprise</title>
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* فقط استایل تایمر معکوس اضافه شده */
+        .song-countdown {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #ff3366, #ff9933);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            z-index: 1002;
+            box-shadow: 0 5px 20px rgba(255, 51, 102, 0.4);
+            animation: pulseCountdown 2s infinite alternate;
+        }
+        
+        .countdown-number {
+            background: white;
+            color: #ff3366;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .countdown-label {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+        
+        .countdown-label small {
+            font-size: 0.7em;
+            opacity: 0.9;
+        }
+        
+        @keyframes pulseCountdown {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(255, 51, 102, 0.4);
+            }
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 51, 102, 0.6);
+            }
+        }
+    </style>
 </head>
 
 <body>
-	<div id="volume-reminder">
-		<div id="volume-icon">✨🔊</div>
-		<h2>Let's Celebrate! 🎉</h2>
-		<p class="main-instruction">Turn up your volume and click to begin the birthday song! 🎶</p>
-		<p class="sub-instruction">After the music, blow out the candles! 🕯️</p>
-		<p class="tip">(Hold the screen or blow into microphone) 🎤</p>
-	</div>
-	<audio id="happy-birthday-audio">
-		<source src="/happy-birthday.mp3" type="audio/mpeg">
-	</audio>
-	<div id="hold-reminder">
-		<h2>Make a Magical Wish! ✨</h2>
-		<p class="main-instruction">Now it's time to blow out the candles! 🎂</p>
-		<p class="sub-instruction">Make your secret birthday wish come true! 💫</p>
-	</div>
-	<div id="congratulation-overlay">
-		<div id="congratulation-text">
-			<h1>🎉 Happy Birthday! 🎊</h1>
-		</div>
-	</div>
-	<script>
-		const audio = document.getElementById('happy-birthday-audio');
-		const volumeReminder = document.getElementById('volume-reminder');
+    <!-- New name input screen -->
+    <div id="name-input-screen" class="show">
+        <div class="input-container">
+            <h2><i class="fas fa-cake-candles"></i> Enter Your Name <i class="fas fa-cake-candles"></i></h2>
+            <p class="main-instruction">Type your name below to personalize your birthday celebration!</p>
+            <div class="input-wrapper">
+                <i class="fas fa-user-pen input-icon"></i>
+                <input type="text" id="user-name-input" placeholder="Enter your name here..." maxlength="20">
+            </div>
+            <button id="start-celebration-btn">
+                <i class="fas fa-sparkles"></i> Start Celebration! <i class="fas fa-party-horn"></i>
+            </button>
+            <p class="tip"><i class="fas fa-lightbulb"></i> Your name will appear in the birthday message</p>
+        </div>
+    </div>
 
-		volumeReminder.addEventListener("click", function () {
-			audio.play();
-			volumeReminder.classList.remove('show');
-			setTimeout(function () {
-				volumeReminder.style.display = 'none';
-			}, 1000);
-		})
-
-		// Control the display of volume reminder
-		window.addEventListener('load', function () {
-			volumeReminder.classList.add('show');
-		});
-	</script>
-	<script type="module" src="script.js"></script>
+    <div id="volume-reminder">
+        <div id="volume-icon">
+            <i class="fas fa-volume-up"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <h2>Let's Celebrate! <i class="fas fa-confetti"></i></h2>
+        <p class="main-instruction"><i class="fas fa-music"></i> Turn up your volume and click to begin the birthday song!</p>
+        <p class="sub-instruction"><i class="fas fa-candle-holder"></i> After the music, blow out the candles!</p>
+        <p class="tip"><i class="fas fa-microphone"></i> Hold the screen or blow into microphone</p>
+    </div>
+    
+    <audio id="happy-birthday-audio">
+        <source src="/happy-birthday.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div id="hold-reminder">
+        <h2><i class="fas fa-wand-magic-sparkles"></i> Make a Magical Wish! <i class="fas fa-wand-magic-sparkles"></i></h2>
+        <p class="main-instruction"><i class="fas fa-fire-flame-curved"></i> Now it's time to blow out the candles!</p>
+        <p class="sub-instruction"><i class="fas fa-seedling"></i> Make your secret birthday wish come true!</p>
+    </div>
+    
+    <!-- تایمر معکوس اضافه شده -->
+    <div class="song-countdown" id="song-countdown">
+        <div class="countdown-number" id="countdown-number">38</div>
+        <div class="countdown-label">
+            <span>Song Time</span>
+            <small>seconds remaining</small>
+        </div>
+    </div>
+    
+    <div id="congratulation-overlay">
+        <div id="congratulation-text">
+            <h3><i class="fas fa-gift"></i> Happy Birthday! <i class="fas fa-gift"></i></h3>
+            <!-- Personalized name will appear here -->
+            <h4 id="personalized-name"></h4>
+        </div>
+    </div>
+    
+    <script>
+        // Store user name globally
+        let userName = "";
+        
+        // Name input functionality
+        const nameInputScreen = document.getElementById('name-input-screen');
+        const userNameInput = document.getElementById('user-name-input');
+        const startCelebrationBtn = document.getElementById('start-celebration-btn');
+        const volumeReminder = document.getElementById('volume-reminder');
+        const audio = document.getElementById('happy-birthday-audio');
+        const personalizedNameElement = document.getElementById('personalized-name');
+        
+        // متغیرهای تایمر معکوس اضافه شده
+        const songCountdown = document.getElementById('song-countdown');
+        const countdownNumber = document.getElementById('countdown-number');
+        let songCountdownValue = 38;
+        let songCountdownInterval;
+        
+        // تابع شروع تایمر معکوس اضافه شده
+        function startSongCountdown() {
+            songCountdownValue = 38;
+            countdownNumber.textContent = songCountdownValue;
+            songCountdown.style.display = 'flex';
+            
+            songCountdownInterval = setInterval(() => {
+                songCountdownValue--;
+                countdownNumber.textContent = songCountdownValue;
+                
+                if (songCountdownValue <= 0) {
+                    clearInterval(songCountdownInterval);
+                    songCountdown.style.display = 'none';
+                }
+            }, 1000);
+        }
+        
+        // Start celebration when button is clicked
+        startCelebrationBtn.addEventListener("click", function () {
+            userName = userNameInput.value.trim();
+            
+            // If no name entered, use default
+            if (!userName) {
+                userName = "Friend";
+            }
+            
+            // Store the name for later use
+            localStorage.setItem('birthdayUserName', userName);
+            
+            // تنظیم نام در المان نمایش
+            if (personalizedNameElement) {
+                personalizedNameElement.innerHTML = `<i class="fas fa-birthday-cake"></i> ${userName}! <i class="fas fa-balloon"></i>`;
+            }
+            
+            // Hide name input screen
+            nameInputScreen.classList.remove('show');
+            setTimeout(function () {
+                nameInputScreen.style.display = 'none';
+            }, 1000);
+            
+            // Show volume reminder
+            volumeReminder.style.display = 'flex';
+            setTimeout(function () {
+                volumeReminder.classList.add('show');
+            }, 50);
+        });
+        
+        // Allow pressing Enter to start
+        userNameInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                startCelebrationBtn.click();
+            }
+        });
+        
+        // Set personalized name when congratulation appears
+        window.addEventListener('load', function () {
+            // Check if we have a stored name from script.js
+            const storedName = localStorage.getItem('birthdayUserName');
+            if (storedName && personalizedNameElement) {
+                personalizedNameElement.innerHTML = `<i class="fas fa-birthday-cake"></i> ${userName}! <i class="fas fa-balloon"></i>`;
+                userName = storedName;
+            }
+        });
+        
+        // Original volume reminder functionality
+        volumeReminder.addEventListener("click", function () {
+            audio.play();
+            volumeReminder.classList.remove('show');
+            setTimeout(function () {
+                volumeReminder.style.display = 'none';
+            }, 1000);
+            
+            // شروع تایمر معکوس وقتی آهنگ پخش می‌شود
+            startSongCountdown();
+        });
+        
+        // پاک کردن interval هنگام بسته شدن صفحه
+        window.addEventListener('beforeunload', function() {
+            if (songCountdownInterval) clearInterval(songCountdownInterval);
+        });
+    </script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>

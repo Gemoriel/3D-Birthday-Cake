@@ -26,6 +26,9 @@ const CREAM_DETAIL = 128;
 const STRAWBERRY_COUNT = 20;
 const CREAM_DROP_COUNT = 30;
 
+// نام کاربر را از localStorage بگیر
+const userName = localStorage.getItem('birthdayUserName') || "Friend";
+
 // Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
@@ -815,6 +818,15 @@ function showCongratulation() {
     overlay.style.pointerEvents = 'auto';
     overlay.style.background = 'rgba(0, 0, 0, 0.8)';
     overlay.style.opacity = '1';
+    
+    // Update the personalized name in the congratulation
+    const personalizedNameElement = document.getElementById('personalized-name');
+    if (personalizedNameElement) {
+        personalizedNameElement.textContent = `${userName}! 🎈`;
+    }
+    
+    // همچنین congratulation-overlay را show کن
+    overlay.classList.add('show');
 }
 
 // Update smoke animation for a candle

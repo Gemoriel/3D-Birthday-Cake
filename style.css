@@ -1,26 +1,118 @@
 body {
   overflow: hidden;
   margin: 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fee2e2 100%); /* از صورتی به نارنجی-قرمز ملایم */
 }
 
-div, p {
-  user-select: none;
-  font-family: "Noto Sans TC", sans-serif;
+/* New styles for name input screen */
+#name-input-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 247, 237, 0.95), rgba(254, 226, 226, 0.98));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #dc2626; /* قرمز اصلی به جای صورتی */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
 }
 
+#name-input-screen.show {
+  opacity: 1;
+}
+
+.input-container {
+  background: rgba(220, 38, 38, 0.15); /* قرمز شفاف */
+  padding: 2.5rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  animation: float 3s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  border: 2px solid #dc2626; /* قرمز غنی */
+  box-shadow: 0 0 0 4px #f87171, 0 0 0 6px #dc2626; /* سایه‌های قرمز ملایم */
+}
+
+.input-container h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #dc2626;
+  text-shadow: 2px 2px 0 #f87171, 4px 4px 0 #fee2e2;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+#user-name-input {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.2rem;
+  border: 3px solid #dc2626;
+  border-radius: 4px;
+  margin: 25px 0;
+  text-align: center;
+  background: rgba(251, 113, 113, 0.2); /* قرمز ملایم */
+  color: #991b1b; /* قرمز تیره‌تر */
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+#user-name-input:focus {
+  outline: none;
+  border-color: #fb923c; /* نارنجی گرم */
+  box-shadow: 0 0 0 2px #fb923c, 0 0 0 4px #f87171;
+  transform: scale(1.02);
+  background: rgba(251, 113, 113, 0.4);
+}
+
+#user-name-input::placeholder {
+  color: rgba(220, 38, 38, 0.6);
+}
+
+#start-celebration-btn {
+  background: linear-gradient(to right, #dc2626, #f87171); /* گرادیانت قرمز-نارنجی */
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.3rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0 #7f1d1d, 6px 6px 0 #f87171; /* سایه‌های مشکی-قرمز */
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#start-celebration-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #7f1d1d, 4px 4px 0 #f87171;
+  top: 2px;
+  left: 2px;
+}
+
+/* Volume reminder styles */
 #volume-reminder {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 46, 0.95));
-  display: flex;
+  background: linear-gradient(45deg, rgba(255, 247, 237, 0.95), rgba(254, 226, 226, 0.98));
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: #dc2626;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   z-index: 1000;
@@ -34,6 +126,8 @@ div, p {
 #volume-icon {
   font-size: 64px;
   margin-bottom: 30px;
+  color: #dc2626;
+  text-shadow: 2px 2px 0 #f87171, 4px 4px 0 #fee2e2;
   animation: pulse 2s infinite;
 }
 
@@ -46,8 +140,8 @@ div, p {
 #volume-reminder h2 {
   font-size: 2.8em;
   margin-bottom: 25px;
-  color: #ffd700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  color: #dc2626;
+  text-shadow: 2px 2px 0 #f87171, 4px 4px 0 #fee2e2;
   font-weight: 800;
   letter-spacing: 1px;
 }
@@ -56,7 +150,7 @@ div, p {
   font-size: 1.5em;
   font-weight: 600;
   margin: 15px 0;
-  color: #fff;
+  color: #991b1b;
   text-align: center;
   line-height: 1.6;
   padding: 0 20px;
@@ -65,7 +159,7 @@ div, p {
 .sub-instruction {
   font-size: 1.3em;
   margin: 12px 0;
-  color: #e0e0e0;
+  color: #f87171;
   text-align: center;
   line-height: 1.5;
   padding: 0 20px;
@@ -73,40 +167,43 @@ div, p {
 
 .tip {
   font-size: 1.1em;
-  color: #aaa;
+  color: #dc2626;
   font-style: italic;
   margin-top: 25px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(251, 113, 113, 0.2);
   padding: 12px 24px;
-  border-radius: 25px;
+  border-radius: 4px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid #f87171;
 }
 
 #hold-reminder {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-right:auto;
-    margin-left:auto;
-    width: 80%;
-    height: 10%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  height: 10%;
+  background-color: rgba(220, 38, 38, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #991b1b;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-top: 3px solid #dc2626;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 0 #f87171;
 }
 
 #hold-reminder.show {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 #congratulation-overlay {
   position: fixed;
@@ -114,17 +211,66 @@ div, p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(255, 247, 237, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 1s ease;
   pointer-events: none;
+  z-index: 9999;
 }
 
 #congratulation-text {
-  color: white;
-  font-size: 4em;
+  font-size: 4.5em;
   text-align: center;
+  font-weight: bold;
+  padding: 20px 40px;
+  
+  /* پالت جدید: نارنجی-قرمز-مشکی با حس جشن گرم و جذاب */
+  background: linear-gradient(
+    45deg,
+    #dc2626,  /* قرمز غنی */
+    #f87171,  /* قرمز ملایم */
+    #fb923c,  /* نارنجی گرم */
+    #1f2937,  /* خاکستری-مشکی عمیق */
+    #ef4444   /* قرمز روشن */
+  );
+  
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  animation: pixelGlow 2s ease-in-out infinite alternate;
+  text-shadow: 2px 2px 0 #fee2e2, 4px 4px 0 #fff7ed;
+}
+
+@keyframes pixelGlow {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(220, 38, 38, 0.8));
+    transform: translateY(0);
+  }
+  100% {
+    filter: drop-shadow(0 0 24px rgba(239, 68, 68, 0.8));
+    transform: translateY(-6px);
+  }
+}
+
+/* Add some cute decorative elements */
+.input-container::before {
+  content: "❤️";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  font-size: 2em;
+  filter: drop-shadow(2px 2px 0 #f87171);
+}
+
+.input-container::after {
+  content: "🎂";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 2em;
+  filter: drop-shadow(2px 2px 0 #f87171);
 }

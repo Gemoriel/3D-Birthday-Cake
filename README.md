@@ -1,22 +1,34 @@
-# Three.js Birthday Cake
+# 🎂 Three.js 3D Birthday Cake Surprise
 
-A 3D birthday cake made with Three.js. It plays the "Happy Birthday" song and allows users to blow out candles.
+A beautiful and interactive web-based birthday celebration featuring a **realistic 3D cake** built with **Three.js**!
 
-The candle feature is primarily based on the Codepen [The Lonely Candle](https://codepen.io/prisoner849/pen/XPVGLp) by [prisoner849](https://codepen.io/prisoner849).
+This project delivers a fully personalized birthday experience: users enter their name, listen to the classic "Happy Birthday" song, and then blow out the 3D cake candles by actually blowing into the microphone (or holding the screen)!
 
-[Live Demo](https://surprise.leowang.dev/)
+## ✨ Features
 
-## Preview
+- **Realistic 3D birthday cake** created with Three.js
+- **Full personalization**: Enter your name, which appears in the final congratulatory message
+- **Happy Birthday song playback** with a 38-second countdown timer
+- **Real blow detection** using the microphone (Web Audio API)
+- **Mobile support**: Hold/touch the screen to blow out candles
+- **Guided experience**: Reminders to turn up volume, wait until song ends, and how to blow
+- **Stunning animations & effects**: Particles, lighting, shadows, and festive visuals
+- **Responsive design** with a warm red-orange-black theme
+- **No server required** – Pure client-side, perfect for hosting on GitHub Pages or any static host
 
-A 3D cake that rotates and plays "Happy Birthday" song in the backgroud.
-![Preview](./screenshot/cake-screenshot.png)
+## 🖼️ Demo / Screenshot
 
-## Features
+![Birthday Cake Screenshot](./screenshot/BD-cake.png)
 
-- Displays a 3D birthday cake with candles
-- Plays the "Happy Birthday" song
-- After the song ends, users can blow out the candles by holding down the mouse
-- Once the candles are extinguished, a birthday message appears
+![Birthday Cake Screenshot](./screenshot/Happy.png.png)
+
+**Live Demo**:  https://yourusername.github.io/three-js-birthday-cake)
+
+## 🚀 How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YALDAKHOSHPEY/three-js-birthday-cake.git
 
 ## Development
 
@@ -29,8 +41,45 @@ A 3D cake that rotates and plays "Happy Birthday" song in the backgroud.
 - [The Lonely Candle Codepen](https://codepen.io/prisoner849/pen/XPVGLp)
 - [Happy Birthday song (YouTube)](https://www.youtube.com/watch?v=aF8voKa_3Us)
 
-## Disclaimer
+## 📱 Tips for the Best Experience
 
-Hey there! If I've accidentally used something I shouldn't have, please let me know. I'm all about respecting others' work, so if you spot anything that belongs to you and you're not cool with me using it, just send me an email. I'll take it down as soon as possible! Thanks for understanding, and happy coding! 🚀
+- **Turn up your volume** to fully enjoy the song and sound effects.
+- To **blow out the candles**:
+  - On desktop: Blow strongly and briefly near your microphone (like real candles!)
+  - On mobile: Long-press (hold) anywhere on the screen
+- Use modern browsers: Chrome, Edge, or Firefox recommended.
 
-Contact me at: [ascodeasice@gmail.com](mailto:ascodeasice@gmail.com)
+## 🛠️ Technologies Used
+
+- **Three.js** – 3D rendering of the cake and candles
+- **Web Audio API** – Real-time blow detection via microphone
+- **HTML5 Audio** – Playing the birthday song
+- **Vanilla JavaScript** – No frameworks
+- **Modern CSS** – Animations and responsive layout
+
+## 🎨 Color Theme
+
+Current theme: **Rich red, warm orange, and deep black** – creates a passionate and festive vibe  
+
+
+## 👤 Personalization
+
+The entered name is displayed in the final message:  
+**"Happy Birthday, [Your Name]!"**
+
+## 📂 Project Structure
+
+- `index.html` – Main page
+- `style.css` – Beautiful styling with red-orange theme
+- `script.js` – Core logic (Three.js scene, blow detection, candle animation)
+- `happy-birthday.mp3` – Birthday song (in root or public folder)
+- `public/` – Icons, images, and static assets
+- `screenshot/` – Project screenshot
+
+## 📄 License
+
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+
+## 🔗 Repository
+
+https://github.com/YALDAKHOSHPEY
