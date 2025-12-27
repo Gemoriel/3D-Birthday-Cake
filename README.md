@@ -48,7 +48,7 @@ Enjoy personalized congratulations with sparkles and confetti
 
 ## 🚀 Demo
 
-### [🎂 Start Your Birthday Experience Here](https://threed-birthday-cake.onrender.com/)
+### [🎂 Start Your Birthday Experience Here](https://happy-birthday-hl4c.onrender.com/)
 
 *No downloads • No registration • Instant celebration*
 
